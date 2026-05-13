@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
+  --brand-lime: #D4FF00;
+  --brand-dark: #0A0A0A;
+  --brand-card: #111111;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand-lime: var(--brand-lime);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-card: var(--brand-card);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .text-stroke-lime {
+    -webkit-text-stroke: 1px #D4FF00;
+    color: transparent;
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+  }
+  
+  .timeline-dot::before {
+    content: '';
+    position: absolute;
+    left: -21px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #D4FF00;
+    box-shadow: 0 0 10px #D4FF00;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
 }

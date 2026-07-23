@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 💼 My Portfolio
 
-## Getting Started
+A modern, responsive personal portfolio website built to showcase my skills, projects, and experience as a **Frontend / MERN Stack Developer**.
 
-First, run the development server:
+## 🌐 Live Demo
+
+🔗 **Live Website:**
+https://my-portpolio-woad.vercel.app
+
+## 📌 About
+
+This portfolio highlights my journey as a web developer, featuring my technical skills, featured projects, education, and contact information. It is designed with a clean, responsive UI to provide a great experience across desktop and mobile devices.
+
+## ✨ Features
+
+* Responsive design for all devices
+* Modern and clean UI
+* About Me section
+* Technical Skills section
+* Featured Projects
+* Resume download
+* Contact section
+* Social media links
+* Smooth navigation
+
+## 🛠️ Technologies Used
+
+### Frontend
+
+* React.js
+* JavaScript (ES6+)
+* Tailwind CSS
+* HTML5
+* CSS3
+
+### Tools
+
+* Git
+* GitHub
+* Vercel
+* VS Code
+
+## 📁 Project Structure
+
+```text
+src/
+ ├── assets/
+ ├── components/
+ ├── pages/
+ ├── hooks/
+ ├── layouts/
+ ├── App.jsx
+ └── main.jsx
+```
+
+## 🚀 Getting Started
+
+Clone the repository
+
+```bash
+git clone https://github.com/Salmakhandoker/my-portpolio.git
+```
+
+Go to the project folder
+
+```bash
+cd my-portpolio
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📂 Deployment
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+This project is deployed on **Vercel**.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📬 Contact
 
-## Learn More
+**Name:** Salma Khandoker
 
-To learn more about Next.js, take a look at the following resources:
+* GitHub: https://github.com/Salmakhandoker
+* Portfolio: https://my-portpolio-woad.vercel.app
+* LinkedIn: *(Add your LinkedIn URL here)*
+* Email: *(khandokersalma5@gmail.com)*
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ⭐ Future Improvements
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* Add dark/light mode
+* Improve project filtering
+* Add blog section
+* Add certificates section
+* Improve accessibility
+* Add animations for better user experience
 
-## Deploy on Vercel
+## 📄 License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License.

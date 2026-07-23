@@ -1,0 +1,86 @@
+"use client";
+
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { projects } from '@/data/projects';
+
+export default function Projects() {
+  const [showAll, setShowAll] = useState(false);
+
+  // Default to showing only landing page projects (first 2)
+  const displayedProjects = showAll ? projects : projects.slice(0, 2);
+
+  return (
+    <section className="max-w-7xl mx-auto px-6 py-20" id="projects-section">
+      <div className="space-y-12">
+        <div className="text-center lg:text-left">
+          <p className="text-brand-lime text-[10px] font-bold uppercase tracking-widest mb-2">MY CREATIVE WORKS</p>
+          <h2 className="text-4xl font-black">Featured <span className="text-brand-lime italic">Projects</span></h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {displayedProjects.map((project) => (
+            <div key={project.id} className="glass-card overflow-hidden group flex flex-col justify-between hover:border-brand-lime/20 transition-all duration-300">
+              <div className="relative h-48 w-full overflow-hidden bg-zinc-900">
+                <Image 
+                  alt={project.name} 
+                  src={project.image}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-all duration-500"
+                />
+              </div>
+
+              <div className="p-6 flex-1 flex flex-col justify-between space-y-6">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-brand-lime transition-colors">{project.name}</h3>
+                  <p className="text-foreground/70 text-xs line-clamp-2 leading-relaxed">{project.tagline}</p>
+                </div>
+
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {project.tech.slice(0, 3).map((t, idx) => (
+                    <span key={idx} className="bg-foreground/5 border border-foreground/5 text-[9px] font-semibold tracking-wider text-foreground/70 px-2 py-1 rounded">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="pt-4">
+                  <Link 
+                    href={`/projects/${project.id}`}
+                    className="w-full bg-brand-card border border-foreground/5 text-foreground/80 hover:bg-brand-lime hover:text-black hover:border-brand-lime font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition-all text-xs uppercase tracking-widest cursor-pointer"
+                  >
+                    View Details
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {projects.length > 2 && (
+          <div className="flex justify-center pt-8">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="bg-brand-card border border-brand-lime/20 text-brand-lime px-8 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-brand-lime hover:text-black transition-all group cursor-pointer text-xs uppercase tracking-widest"
+            >
+              {showAll ? 'See Less' : 'See More Projects'}
+              <svg 
+                className={`h-4 w-4 transform transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`} 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path>
+              </svg>
+            </button>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}

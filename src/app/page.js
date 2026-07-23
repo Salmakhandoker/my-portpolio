@@ -4,6 +4,7 @@ import Experience from '@/components/Experience';
 import Services from '@/components/Services';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
+import Projects from '@/components/Projects';
 import Resume from '@/components/Resume';
 import Blog from '@/components/Blog';
 import Contact from '@/components/Contact';
@@ -11,7 +12,7 @@ import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-brand-lime selection:text-black">
+    <main className="min-h-screen bg-background text-foreground selection:bg-brand-lime selection:text-black transition-colors duration-300">
       <Navbar />
       
       <div className="pt-24 space-y-20 lg:space-y-32">
@@ -25,6 +26,8 @@ export default function Home() {
         <About />
         
         <Skills />
+        
+        <Projects />
         
         <Resume />
         

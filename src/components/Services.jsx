@@ -15,9 +15,9 @@ export default function Services() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {services.map((service) => (
           <div key={service.id} className="glass-card p-6 space-y-4 hover:border-brand-lime/30 transition-all cursor-default">
-            <p className="text-xs text-gray-600 font-bold">{service.id}</p>
+            <p className="text-xs text-foreground/50 font-bold">{service.id}</p>
             <h4 className="font-bold text-md leading-snug">{service.title}</h4>
-            <p className="text-[10px] text-gray-500 leading-relaxed">{service.desc}</p>
+            <p className="text-[10px] text-foreground/60 leading-relaxed">{service.desc}</p>
           </div>
         ))}
       </div>

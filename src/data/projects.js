@@ -24,6 +24,18 @@ export const projects = [
     futurePlans: "Integrate 3D virtual tour walk-throughs, custom payment calculators, and instant chat connectivity with real estate managers."
   },
   {
+    id: "recipehub",
+    name: "RecipeHub",
+    tagline: "Dynamic Recipe Sharing & Premium Culinary Community Platform.",
+    description: "A comprehensive recipe-sharing application where food enthusiasts browse thousands of curated dishes, publish culinary creations, write reviews, and upgrade to Premium using Stripe checkout.",
+    image: "/projects/recipehub.png",
+    tech: ["React", "Next.js", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
+    liveLink: "https://client-side-ochre.vercel.app",
+    githubLink: "https://github.com/Salmakhandoker/recipehub-client",
+    challenges: "Securing webhook transaction handling with Stripe for premium subscription status and managing dynamic search filter queries across large recipe datasets.",
+    futurePlans: "Introduce custom nutrition API integrations, automated grocery shopping list generation, and cooking step-by-step narration via speech synthesis."
+  },
+  {
     id: "qurbanir-hat",
     name: "Qurbani Haat",
     tagline: "Online livestock booking and hat management platform.",

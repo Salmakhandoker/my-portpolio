@@ -9,6 +9,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') || 'dark';
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(savedTheme);
     if (savedTheme === 'light') {
       document.documentElement.classList.add('light');

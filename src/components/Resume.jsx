@@ -91,7 +91,7 @@ export default function Resume() {
                 Download Resume (PDF)
               </a>
               <p className="text-[10px] text-foreground/50 text-center uppercase tracking-widest italic">
-                PDF format, size: ~1.2 MB
+                PDF format, size: ~76 KB
               </p>
             </div>
 

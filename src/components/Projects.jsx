@@ -8,8 +8,8 @@ import { projects } from '@/data/projects';
 export default function Projects() {
   const [showAll, setShowAll] = useState(false);
 
-  // Default to showing only landing page projects (first 2)
-  const displayedProjects = showAll ? projects : projects.slice(0, 2);
+  // Default to showing only landing page projects (first 3)
+  const displayedProjects = showAll ? projects : projects.slice(0, 3);
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-20" id="projects-section">
@@ -61,7 +61,7 @@ export default function Projects() {
           ))}
         </div>
 
-        {projects.length > 2 && (
+        {projects.length > 3 && (
           <div className="flex justify-center pt-8">
             <button
               onClick={() => setShowAll(!showAll)}

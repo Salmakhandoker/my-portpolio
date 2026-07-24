@@ -7,7 +7,7 @@ export const projects = [
     image: "/projects/aetheria.png",
     tech: ["React", "Next.js", "Node.js", "Gemini AI", "Tailwind CSS"],
     liveLink: "https://ai-project-client-side.vercel.app",
-    githubLink: "https://github.com/Salmakhandoker/aetheria-client",
+    githubLink: "https://github.com/Salmakhandoker/Ai-agentic-client",
     challenges: "Handling structured JSON output schemas reliably from LLMs for multi-day itineraries and caching generations to minimize API latency and token usage.",
     futurePlans: "Introduce real-time collaborative planning features, map routing animations for daily itineraries, and integration with live booking channels."
   },
@@ -19,7 +19,7 @@ export const projects = [
     image: "/projects/luxehaven.png",
     tech: ["TypeScript", "React", "Tailwind CSS", "React Router"],
     liveLink: "https://ts-client-side.vercel.app",
-    githubLink: "https://github.com/Salmakhandoker/luxehaven-client",
+    githubLink: "https://github.com/Salmakhandoker/ts-client-side",
     challenges: "Enforcing strict type definitions for complex property search states and delivering high-performance image gallery carousels on low-end devices.",
     futurePlans: "Integrate 3D virtual tour walk-throughs, custom payment calculators, and instant chat connectivity with real estate managers."
   },
@@ -43,7 +43,7 @@ export const projects = [
     image: "/projects/qurbani-hat.png",
     tech: ["React", "Next.js", "Node.js", "MongoDB", "Tailwind CSS"],
     liveLink: "https://qurbanir-hat.example.com",
-    githubLink: "https://github.com/Salmakhandoker/qurbanir-hat-client",
+    githubLink: "https://github.com/Salmakhandoker/qurbani-hat",
     challenges: "Handling real-time availability of livestock bookings and ensuring transactional safety during high-traffic peak hours before the festival. Resolving state synchronization across concurrent booking requests.",
     futurePlans: "Introduce dynamic live-stream video channels from the hats to view livestock in real-time, integrate automated weight-estimation via AI models, and include multi-currency support."
   },
@@ -55,7 +55,7 @@ export const projects = [
     image: "/projects/cofund.png",
     tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
     liveLink: "https://asignme-11-client-side.vercel.app",
-    githubLink: "https://github.com/Salmakhandoker/cofund-client",
+    githubLink: "https://github.com/Salmakhandoker/vibe-codig-client",
     challenges: "Handling state updates for backing campaigns concurrently, ensuring data consistency when updating accumulated campaign funds, and configuring complex database queries for filtering active versus expired campaigns.",
     futurePlans: "Implement Stripe payment gateway integration for real-time secure pledge processing, add automated email receipt confirmations, and develop social sharing integration to boost campaign outreach."
   },
@@ -67,7 +67,7 @@ export const projects = [
     image: "/projects/studynook.png",
     tech: ["React", "Next.js", "Node.js", "MongoDB", "Tailwind CSS"],
     liveLink: "https://studynook-tau.vercel.app",
-    githubLink: "https://github.com/Salmakhandoker/studynook-client",
+    githubLink: "https://github.com/Salmakhandoker/study-nook",
     challenges: "Preventing overlapping room reservations during peak hours with strict date-time validation on the backend and keeping dynamic room availability synchronized in real-time.",
     futurePlans: "Integrate real-time push notifications using WebSockets for booking updates, add calendar synchronization (Google Calendar / iCal), and support multiple library branch locations with administrative overrides."
   }

@@ -48,27 +48,27 @@ export const projects = [
     futurePlans: "Introduce dynamic live-stream video channels from the hats to view livestock in real-time, integrate automated weight-estimation via AI models, and include multi-currency support."
   },
   {
-    id: "keen-keeper",
-    name: "Keen Keeper",
-    tagline: "Full-stack web application with responsive UI.",
-    description: "A responsive application built with a modern, component-based frontend architecture. Ideal for task management, keeping logs, and tracking goals.",
-    image: "/projects/keen-keeper.png",
-    tech: ["React.js", "JavaScript", "Tailwind CSS"],
-    liveLink: "https://keen-keeper.example.com",
-    githubLink: "https://github.com/Salmakhandoker/keen-keeper",
-    challenges: "Implementing highly customizable state management for dynamic dashboard widgets and keeping rendering smooth when processing nested task trees.",
-    futurePlans: "Add visual team collaboration features (e.g. kanban drag-and-drop), integrate real-time notifications via WebSockets, and build a native mobile companion app."
+    id: "cofund",
+    name: "CoFund",
+    tagline: "MERN-Stack Crowdfunding Platform.",
+    description: "A modern, responsive crowdfunding platform enabling supporters to back innovative campaigns and creators to bring ideas to life. Features campaign creation, pledge processing, user dashboard, and category filters.",
+    image: "/projects/cofund.png",
+    tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+    liveLink: "https://asignme-11-client-side.vercel.app",
+    githubLink: "https://github.com/Salmakhandoker/cofund-client",
+    challenges: "Handling state updates for backing campaigns concurrently, ensuring data consistency when updating accumulated campaign funds, and configuring complex database queries for filtering active versus expired campaigns.",
+    futurePlans: "Implement Stripe payment gateway integration for real-time secure pledge processing, add automated email receipt confirmations, and develop social sharing integration to boost campaign outreach."
   },
   {
-    id: "tea-house",
-    name: "Tea House",
-    tagline: "Mobile-first responsive landing page.",
-    description: "A beautiful, highly interactive landing page focused on UI/UX, user-centric typography, and cross-device responsiveness.",
-    image: "/projects/tea-house.png",
-    tech: ["HTML", "CSS", "JavaScript"],
-    liveLink: "https://tea-house.example.com",
-    githubLink: "https://github.com/Salmakhandoker/tea-house",
-    challenges: "Ensuring pixel-perfect responsive layouts across legacy mobile browsers and optimizing image assets for fast load times under slow cellular network conditions.",
-    futurePlans: "Incorporate CSS animations and micro-interactions to create a more immersive storytelling experience, integrate headless CMS for dynamic product catalogs, and support multi-language localizations."
+    id: "studynook",
+    name: "StudyNook",
+    tagline: "Premium Library Study Room Booking Platform.",
+    description: "A quiet, comfortable, and productive space reservation system designed for students, researchers, and professionals. Users can browse available rooms, book spaces with automatic conflict prevention, and manage reservations.",
+    image: "/projects/studynook.png",
+    tech: ["React", "Next.js", "Node.js", "MongoDB", "Tailwind CSS"],
+    liveLink: "https://studynook-tau.vercel.app",
+    githubLink: "https://github.com/Salmakhandoker/studynook-client",
+    challenges: "Preventing overlapping room reservations during peak hours with strict date-time validation on the backend and keeping dynamic room availability synchronized in real-time.",
+    futurePlans: "Integrate real-time push notifications using WebSockets for booking updates, add calendar synchronization (Google Calendar / iCal), and support multiple library branch locations with administrative overrides."
   }
 ];

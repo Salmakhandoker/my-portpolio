@@ -1,8 +1,14 @@
+"use client";
+
+import { useState } from 'react';
 import Image from 'next/image';
+import InteractiveTerminal from '@/components/InteractiveTerminal';
 
 export default function Hero() {
+  const [viewMode, setViewMode] = useState('visual'); // 'visual' | 'terminal'
+
   return (
-    <section className="max-w-7xl mx-auto px-6 py-12 lg:py-20 flex flex-col lg:flex-row gap-12 relative" id="home">
+    <section className="max-w-7xl mx-auto px-6 py-12 lg:py-20 flex flex-col lg:flex-row gap-12 relative animate-fade-in" id="home">
       <div className="flex-1 space-y-8">
         <div className="space-y-4">
           <p className="text-foreground/70 italic font-medium">Hello, I&apos;m</p>
@@ -16,7 +22,13 @@ export default function Hero() {
           Providing expert web development services that design and develop interactive web platforms, perfectly reflecting your brand&apos;s identity and driving your business goals.
         </p>
         <div className="flex flex-wrap gap-4 items-center">
-          <button className="bg-brand-lime text-black px-8 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-foreground hover:text-background transition-colors group">
+          <button 
+            onClick={() => {
+              const contactSection = document.getElementById('contact');
+              contactSection?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="bg-brand-lime text-black px-8 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-foreground hover:text-background transition-colors group cursor-pointer"
+          >
             Hire Me 
             <svg className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path>
@@ -26,7 +38,7 @@ export default function Hero() {
           <a 
             href="/resume.pdf" 
             download 
-            className="border border-brand-lime text-brand-lime hover:bg-brand-lime hover:text-black px-8 py-3 rounded-full font-bold flex items-center gap-2 transition-all"
+            className="border border-brand-lime text-brand-lime hover:bg-brand-lime hover:text-black px-8 py-3 rounded-full font-bold flex items-center gap-2 transition-all cursor-pointer"
           >
             Download CV
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -53,31 +65,61 @@ export default function Hero() {
       </div>
 
       {/* Stats and Visual Graphics */}
-      <div className="flex-1 relative flex flex-col items-center justify-center">
+      <div className="flex-1 relative flex flex-col items-center justify-center w-full min-h-[460px]">
+        {/* Toggle Switcher */}
+        <div className="flex items-center gap-1 bg-brand-card border border-foreground/5 p-1 rounded-full mb-6 z-20 shadow-md">
+          <button 
+            onClick={() => setViewMode('visual')}
+            className={`px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+              viewMode === 'visual' 
+                ? 'bg-brand-lime text-black' 
+                : 'text-foreground/60 hover:text-foreground'
+            }`}
+          >
+            Visual Profile
+          </button>
+          <button 
+            onClick={() => setViewMode('terminal')}
+            className={`px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+              viewMode === 'terminal' 
+                ? 'bg-brand-lime text-black' 
+                : 'text-foreground/60 hover:text-foreground'
+            }`}
+          >
+            Dev Terminal
+          </button>
+        </div>
+
         {/* Lime Circle Backdrop */}
         <div className="absolute inset-0 bg-brand-lime rounded-full blur-[120px] opacity-10"></div>
         
-        <div className="relative w-80 h-80 md:w-[450px] md:h-[450px] z-10">
-          <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-brand-lime/30 shadow-2xl shadow-brand-lime/10">
-            <Image 
-              src="/profile.jpg" 
-              alt="Salma Khandoker" 
-              fill 
-              className="object-cover"
-              priority
-            />
+        {viewMode === 'visual' ? (
+          <div className="relative w-80 h-80 md:w-[400px] md:h-[400px] z-10 transition-all duration-500 animate-fade-in flex items-center justify-center">
+            <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-brand-lime/30 shadow-2xl shadow-brand-lime/10">
+              <Image 
+                src="/profile.jpg" 
+                alt="Salma Khandoker" 
+                fill 
+                className="object-cover"
+                priority
+              />
+            </div>
+            
+            {/* Floating Stats */}
+            <div className="absolute -right-4 top-10 glass-card p-4 w-32 animate-float">
+              <h3 className="text-2xl font-bold text-brand-lime">5+</h3>
+              <p className="text-[10px] text-foreground/50 uppercase tracking-widest">Years Exp</p>
+            </div>
+            <div className="absolute -left-4 bottom-10 glass-card p-4 w-32 animate-float-delayed">
+              <h3 className="text-2xl font-bold text-brand-lime">110+</h3>
+              <p className="text-[10px] text-foreground/50 uppercase tracking-widest">Projects</p>
+            </div>
           </div>
-          
-          {/* Floating Stats */}
-          <div className="absolute -right-4 top-10 glass-card p-4 w-32 animate-float">
-            <h3 className="text-2xl font-bold">5+</h3>
-            <p className="text-[10px] text-foreground/50 uppercase tracking-widest">Years Exp</p>
+        ) : (
+          <div className="w-full max-w-[460px] z-10 animate-fade-in">
+            <InteractiveTerminal />
           </div>
-          <div className="absolute -left-4 bottom-10 glass-card p-4 w-32 animate-float-delayed">
-            <h3 className="text-2xl font-bold">110+</h3>
-            <p className="text-[10px] text-foreground/50 uppercase tracking-widest">Projects</p>
-          </div>
-        </div>
+        )}
       </div>
     </section>
   );

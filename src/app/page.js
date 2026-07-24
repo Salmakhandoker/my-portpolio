@@ -9,11 +9,13 @@ import Resume from '@/components/Resume';
 import Blog from '@/components/Blog';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import ThemeCustomizer from '@/components/ThemeCustomizer';
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground selection:bg-brand-lime selection:text-black transition-colors duration-300">
       <Navbar />
+      <ThemeCustomizer />
       
       <div className="pt-24 space-y-20 lg:space-y-32">
         <Hero />

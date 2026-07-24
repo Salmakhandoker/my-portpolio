@@ -1,6 +1,68 @@
+"use client";
+
+import { useState } from 'react';
+
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    // Get the key from env variables
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || "New Message from Portfolio",
+          message: formData.message
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20" id="contact">
+    <section className="max-w-7xl mx-auto px-6 py-20 animate-fade-in" id="contact">
       <div className="grid lg:grid-cols-2 gap-16">
         <div className="space-y-8">
           <div>
@@ -31,7 +93,7 @@ export default function Contact() {
                 <p className="font-bold text-foreground">Cumilla, Bangladesh</p>
               </div>
             </div>
-
+            
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-brand-card border border-foreground/10 flex items-center justify-center text-brand-lime">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
@@ -59,27 +121,75 @@ export default function Contact() {
         </div>
 
         <div className="glass-card p-8 md:p-10">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-[10px] font-bold uppercase tracking-widest text-foreground/50">Your Name</label>
-                <input type="text" className="w-full bg-brand-card/50 border border-foreground/10 text-foreground rounded-lg px-4 py-3 focus:outline-none focus:border-brand-lime transition-colors placeholder:text-foreground/30" placeholder="John Doe" />
+                <input 
+                  type="text" 
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-brand-card/50 border border-foreground/10 text-foreground rounded-lg px-4 py-3 focus:outline-none focus:border-brand-lime transition-colors placeholder:text-foreground/30" 
+                  placeholder="John Doe" 
+                />
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-bold uppercase tracking-widest text-foreground/50">Email Address</label>
-                <input type="email" className="w-full bg-brand-card/50 border border-foreground/10 text-foreground rounded-lg px-4 py-3 focus:outline-none focus:border-brand-lime transition-colors placeholder:text-foreground/30" placeholder="john@example.com" />
+                <input 
+                  type="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-brand-card/50 border border-foreground/10 text-foreground rounded-lg px-4 py-3 focus:outline-none focus:border-brand-lime transition-colors placeholder:text-foreground/30" 
+                  placeholder="john@example.com" 
+                />
               </div>
             </div>
             <div className="space-y-2">
               <label className="text-[10px] font-bold uppercase tracking-widest text-foreground/50">Subject</label>
-              <input type="text" className="w-full bg-brand-card/50 border border-foreground/10 text-foreground rounded-lg px-4 py-3 focus:outline-none focus:border-brand-lime transition-colors placeholder:text-foreground/30" placeholder="Project Inquiry" />
+              <input 
+                type="text" 
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="w-full bg-brand-card/50 border border-foreground/10 text-foreground rounded-lg px-4 py-3 focus:outline-none focus:border-brand-lime transition-colors placeholder:text-foreground/30" 
+                placeholder="Project Inquiry" 
+              />
             </div>
             <div className="space-y-2">
               <label className="text-[10px] font-bold uppercase tracking-widest text-foreground/50">Message</label>
-              <textarea rows="4" className="w-full bg-brand-card/50 border border-foreground/10 text-foreground rounded-lg px-4 py-3 focus:outline-none focus:border-brand-lime transition-colors resize-none placeholder:text-foreground/30" placeholder="Tell me about your project..."></textarea>
+              <textarea 
+                rows="4" 
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className="w-full bg-brand-card/50 border border-foreground/10 text-foreground rounded-lg px-4 py-3 focus:outline-none focus:border-brand-lime transition-colors resize-none placeholder:text-foreground/30" 
+                placeholder="Tell me about your project..."
+              ></textarea>
             </div>
-            <button className="w-full bg-brand-lime text-black font-bold py-4 rounded-lg hover:bg-foreground hover:text-background transition-colors uppercase tracking-widest text-xs cursor-pointer">
-              Send Message
+
+            {submitStatus === 'success' && (
+              <div className="p-4 bg-brand-lime/10 border border-brand-lime/20 rounded-lg text-brand-lime text-xs font-semibold">
+                ✓ Message sent successfully! I will get back to you soon.
+              </div>
+            )}
+
+            {submitStatus === 'error' && (
+              <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-xs font-semibold">
+                ✗ Something went wrong. Please try again or email me directly.
+              </div>
+            )}
+
+            <button 
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-brand-lime text-black font-bold py-4 rounded-lg hover:bg-foreground hover:text-background transition-colors uppercase tracking-widest text-xs cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
           </form>
         </div>

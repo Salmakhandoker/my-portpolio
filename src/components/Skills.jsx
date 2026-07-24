@@ -16,7 +16,9 @@ export default function Skills() {
         { name: "Node.js", level: 85 },
         { name: "Express.js", level: 88 },
         { name: "MongoDB", level: 82 },
-        { name: "Python", level: 75 }
+        { name: "Firebase", level: 85 },
+        { name: "Better-Auth", level: 80 },
+        { name: "Stripe Payments", level: 82 }
       ]
     },
     {

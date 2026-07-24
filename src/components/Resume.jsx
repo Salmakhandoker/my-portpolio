@@ -3,7 +3,8 @@ import Image from 'next/image';
 export default function Resume() {
   const education = [
     { school: "Programming Hero", degree: "Full Stack Web Development (Batch 13)", year: "MERN Stack" },
-    { school: "Cumilla Victoria Government College (National University)", degree: "MSS in Political Science", year: "2022 – 2023" }
+    { school: "Cumilla Victoria Government College (National University)", degree: "MSS in Political Science", year: "2022 – 2023" },
+    { school: "Cumilla Victoria Government College (National University)", degree: "BSS in Political Science", year: "2015 – 2019" }
   ];
 
   const highlights = [
